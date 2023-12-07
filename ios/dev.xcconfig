@@ -1,0 +1,6 @@
+#include "Flutter/Generated.xcconfig"
+//TODO: Change details here
+BUNDLE_ID_SUFFIX=.dev
+PRODUCT_BUNDLE_IDENTIFIER=com.example.flutter_bloc_template.dev
+FLUTTER_TARGET=lib/main_dev.dart
+APP_NAME=[DEV] Bloc Template

@@ -1,0 +1,5 @@
+#include "Flutter/Generated.xcconfig"
+//TODO: Change details here
+PRODUCT_BUNDLE_IDENTIFIER=com.example.flutter_bloc_template
+FLUTTER_TARGET=lib/main_production.dart
+APP_NAME=Bloc Template

@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "DEV [Debug]",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_dev.dart",
+      "args": [
+        "--flavor",
+        "dev"
+      ]
+    },
+    {
+      "name": "PPRD [Debug]",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_pprd.dart",
+      "args": [
+        "--flavor",
+        "pprd"
+      ]
+    },
+    {
+      "name": "PROD [Debug]",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_production.dart",
+      "args": [
+        "--flavor",
+        "production"
+      ]
+    }
+  ]
+}

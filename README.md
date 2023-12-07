@@ -1,32 +1,29 @@
-# Template Flutter BLoC
-Ce projet est un template permettant le lancement rapide d'une application Flutter utilisant BLoC.
+# Flutter BLoC template
+This project is a template for quickly launching a Flutter application using BLoC.
 
-## Prérequis 
-### Environnement
-- [FVM (Flutter Version Management)](https://fvm.app/): Permet de gérer la version du SDK Flutter via le fichier `fvm_config.json`.
+## Prerequisites
+### Environment
+- [FVM (Flutter Version Management)](https://fvm.app/): Manages the Flutter SDK version through the `fvm_config.json` file.
 
-### Extensions VSCode
-- [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter): Extension officielle gérée par l'équipe Flutter.
-- [bloc](https://marketplace.visualstudio.com/items?itemName=FelixAngelov.bloc): Permet la génération des widgets et fichiers BLoC. Développée par le créateur de BLoC.
-- [Dart Data Class Generator _(optionnel)_](https://marketplace.visualstudio.com/items?itemName=hzgood.dart-data-class-generator): Facilite la création des modèles de données.
-- [dart-import (_optionnel_)](https://marketplace.visualstudio.com/items?itemName=luanpotter.dart-import): Nettoie automatiquement les imports pour les convertir en chemins relatifs.
-- [flutter-stylizer (_optionnel_)](https://marketplace.visualstudio.com/items?itemName=gmlewis-vscode.flutter-stylizer): Permet de mettre en forme le code Flutter automatiquement. _Il est possible de [personnaliser](#Flutter-Stylizer) l'ordre des objets dans les options._
-- [Json to Dart Model](https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart): Génère un modèle de document à partir d'un JSON. Pratique lors de la création des classes de retour API.
-- [Pubspec Dependency Search](https://marketplace.visualstudio.com/items?itemName=everettjf.pubspec-dependency-search): Fait le lien entre le `pubspec.yaml` et le site [pub.dev](https://pub.dev).
+### VSCode Extensions
+- [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter): Official extension managed by the Flutter team.
+- [bloc](https://marketplace.visualstudio.com/items?itemName=FelixAngelov.bloc): Facilitates the generation of BLoC widgets and files. Developed by the creator of BLoC.
+- [Dart Data Class Generator _(optional)_](https://marketplace.visualstudio.com/items?itemName=hzgood.dart-data-class-generator): Simplifies the creation of data models.
+- [dart-import (_optional_)](https://marketplace.visualstudio.com/items?itemName=luanpotter.dart-import): Automatically cleans up imports, converting them to relative paths.
+- [flutter-stylizer (_optional_)](https://marketplace.visualstudio.com/items?itemName=gmlewis-vscode.flutter-stylizer): Automatically formats Flutter code. _You can [customize](https://chat.openai.com/#Flutter-Stylizer) the order of objects in the options._
+- [Json to Dart Model](https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart): Generates a document model from JSON. Useful when creating API return classes.
+- [Pubspec Dependency Search](https://marketplace.visualstudio.com/items?itemName=everettjf.pubspec-dependency-search): Links the `pubspec.yaml` file to the [pub.dev](https://pub.dev/) website.
 
-## Packages utilisés
-- `get_it`: Permet l'injection de dépendances sans utiliser le contexte.
-- `logger`: Pour une gestion plus simple des logs.
-- `hive`: Base locale noSQL, pouvant être remplacée par [isar](https://pub.dev/packages/isar).
-- `shared_preferences`: Gestion des shared preferences du téléphone. _Les shared preferences ne remplacent pas une base locale_.
-- `path_provider`: Gestion simple des chemins d'accès, notamment sur mobile.
-- `flutter_bloc`: Package BLoC adapté à Flutter.
-- `okteo_flutter_icons`: Package d'icônes SVG customisées.
+## Used Packages
+- `get_it`: Enables dependency injection without using context.
+- `flutter_bloc`: BLoC package adapted for Flutter.
 
+## Recommended Packages
+- `shared_preferences`: Manages phone shared preferences. _Shared preferences do not replace a local database_.
+- `isar`: Local database. _I prefer to use Isar because it is faster than Hive and easier to use than Sqflite_.`
 
-## Fonctionnement de BLoC
-Le `BLoC` (ou `Cubit`) remplace un viewmodel "classique". Il est responsable de la gestion de la logique de l'écran et de l'exécution des appels à la couche de _data_.
-Comme un viewmodel, il peut être défini au moment où il est utilisé, dans la methode `build` d'un _widget_. Mais il peut aussi être défini globalement au moment de l'initialisation de l'app, grâce à un `BlocProvider`:
+## How BLoC Works
+The `BLoC` (or `Cubit`) replaces a "traditional" view model. It is responsible for managing the screen logic and executing calls to the data layer. Like a view model, it can be defined when used, in the `build` method of a widget. But it can also be defined globally at the app initialization using a `BlocProvider`:
 ```dart
 // app.dart
 ...
@@ -38,7 +35,7 @@ return MultiBlocProvider(
 );
 ```
 
-Dans cet exemple, nos `BLoC` sont définies dans le fichier `bloc_setup.dart`:
+In this example, our `BLoC`s are defined in the `bloc_setup.dart` file:
 ```dart
 // bloc_setup.dart
 class BlocSetup {
@@ -49,36 +46,36 @@ class BlocSetup {
 }
 ```
 
-Une fois définie, le `BLoC` peut se récupérer via le `context`:
+Once defined, the `BLoC` can be retrieved using the `context`:
 ```dart
 final bloc = context.read<ConnectivityCubit>();
-// ou
+// or
 ConnectivityCubit bloc = context.read();
 ```
 
-_Il est aussi possible d'utiliser un `BlocProvider` dans un widget pour le transmettre à ses enfants via le `context`. Cependant, je préfère les passer en paramètre, car cela rend le débogage plus facile en cas d'oubli, même si cela complexifie l'écran._
+_It is also possible to use a `BlocProvider` in a widget to pass it to its children via the `context`. However, I prefer passing them as parameters because it makes debugging easier in case of omission, even if it complicates the screen._
 
 ### BLoC
-Flutter `BLoC` fonctionne en utilisant un système d'échange d'états (State) et d'événements (Event).
+Flutter's `BLoC` works by using a system of state (State) and events (Event) exchange.
 
 ![bloc architecture](readme_img/bloc_architecture_full.webp)
 
 #### BLoC
-Le `BLoC` est l'équivalent du viewmodel. Il intercepte les événements (`events`), effectue une logique, et envoie des états (`states`).
+The `BLoC` is equivalent to the view model. It intercepts events (`events`), performs logic, and sends states (`states`).
 
 #### State
-Les états (`states`) sont des objets que le `BLoC` envoie vers l'écran. Ils sont définis dans un fichier et héritent tous d'une classe abstraite.
+States (`states`) are objects that the `BLoC` sends to the screen. They are defined in a file and all inherit from an abstract class.
 
 #### Event
-Les événements (`events`), tout comme les états (`states`), sont des objets. Cette fois, ils sont envoyés de l'écran vers le `BLoC`. Lorsque le `BLoC` les intercepte, il effectue une logique définie par le développeur et peut envoyer un état.
+Events (`events`), like states (`states`), are objects. This time, they are sent from the screen to the `BLoC`. When the `BLoC` intercepts them, it performs logic defined by the developer and can send a state.
 
 ### Cubit
-Le `Cubit` est une version simplifiée du `BLoC`, qui n'utilise pas les événements pour communiquer, mais directement des méthodes définies dans le ` Cubit`.
+The `Cubit` is a simplified version of the `BLoC`, which does not use events to communicate but directly uses methods defined in the `Cubit`.
 
 ![cubit architecture](readme_img/Cubit_architecture_full.webp)
 
-### Lien avec l'écran
-Pour faire le lien avec l'écran, on utilise un `BlocBuilder`:
+### Link with the Screen
+To link with the screen, a `BlocBuilder` is used:
 ```dart
 ...
 Widget build(BuildContext context) {
@@ -99,7 +96,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-Dans le `builder` du `BlocBuilder`, on a accès au `state` renvoyé par le `BLoC`. À chaque fois qu'un nouveau `state` est émis, le contenu du `builder` est rafraîchi, il est donc possible de changer l'affichage en fonction du `state`.
+In the `builder` of the `BlocBuilder`, we have access to the `state` returned by the `BLoC`. Whenever a new `state` is emitted, the content of the `builder` is refreshed, so it is possible to change the display based on the `state`.
 ```dart
 ...
 builder: (BuildContext context, HomeState state) {
@@ -127,17 +124,17 @@ builder: (BuildContext context, HomeState state) {
 ...
 ```
 
-### Cubit ou BLoC ?
-Le BLoC est plus recommandé lorsque des tests automatiques sont mis en place, car l'architecture `State`/`Event` simplifierait l'écriture des tests.
-Cependant, les Cubits sont [plus simples](#Annexes) à gérer, écrire et comprendre. Je recommande leur utilisation lorsque c'est possible.
+### Cubit or BLoC?
+BLoC is more recommended when automated tests are in place because the `State`/`Event` architecture would simplify test writing. However, Cubits are [simpler](https://chat.openai.com/#Annexes) to manage, write, and understand. I recommend using them whenever possible.
 
 
-## Structure du template
+## Template Structure
 
 ```
 ├── config/
 	└── theme/
 ├──core/
+    ├── api/
     ├── constants/
     ├── global_blocs/
     ├── models/
@@ -153,18 +150,18 @@ Cependant, les Cubits sont [plus simples](#Annexes) à gérer, écrire et compre
 	└── ui_helpers/
 ```
 
-- `config`: Contient la configuration de l'application, telle que le routeur et la définition des variantes (flavors)...
-- `core`: Comprend la logique de base de l'application, avec les modèles, les services, etc...
-- `helpers`: Contient les fonctions et extensions globales de l'application qui n'interagissent pas avec l'interface utilisateur.
-- `ui`: Contient la couche visible de l'application, où l'on trouve les composants partagés, les écrans et les utilitaires qui sont liés à l'interface utilisateur.
+- `config`: Contains the application configuration, such as the router and definition of variants (flavors)...
+- `core`: Includes the core logic of the application, with models, services, etc...
+- `helpers`: Contains global functions and extensions that do not interact with the user interface.
+- `ui`: Contains the visible layer of the application, where shared components, screens, and utilities related to the user interface are found.
 
-_On note que le dossier d'un écran comprend son `BLoC`._
+_Note that a screen's folder includes its `BLoC`._  
 
 
-## Annexes
+## Appendices
 
 ### BLoC vs Cubit
-Différence entre `BLoC` et `Cubit` pour l'écran `HomeScreen`.
+Difference between `BLoC` and `Cubit` for the `HomeScreen` screen.
 
 #### BLoC
 ```dart
