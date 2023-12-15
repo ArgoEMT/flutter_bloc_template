@@ -15,6 +15,11 @@ This project is a template for quickly launching a Flutter application using BLo
 - [Pubspec Dependency Search](https://marketplace.visualstudio.com/items?itemName=everettjf.pubspec-dependency-search): Links the `pubspec.yaml` file to the [pub.dev](https://pub.dev/) website ;
 - [Flutter Intl](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl): Manages the application's translations.
 
+### Make sure to read theses resources
+- [Effective Dart](https://dart.dev/effective-dart): Dart's best practices, all __Flutter__ project should follow them ;
+- [Flutter's Perfomance & Optimization guidelines](https://docs.flutter.dev/perf): Flutter's best practices in terms of performance and optimization ;
+- [BLoC's documentation](https://bloclibrary.dev/#/gettingstarted): BLoC's documentation.
+
 ## Packages used
 - [`get_it`](https://pub.dev/packages/get_it): Enables dependency injection without using context ;
 - [`flutter_bloc`](https://pub.dev/packages/flutter_bloc): BLoC package adapted for Flutter ;
@@ -78,8 +83,8 @@ The `Cubit` is a simplified version of the `BLoC`, which does not use events to 
 
 ![cubit architecture](readme_img/cubit_architecture_full.webp)
 
-### Link with the Screen
-To link with the screen, a `BlocBuilder` is used:
+### Link the BLoC with the Screen
+To link the BLoC _(or cubit)_ with the screen, a `BlocBuilder` is used:
 ```dart
 ...
  Widget build(BuildContext context) {
