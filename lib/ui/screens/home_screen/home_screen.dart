@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../config/config_reader.dart';
 import '../../../generated/l10n.dart';
@@ -12,11 +13,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = HomeCubit()..init();
+    final config = GetIt.instance<AppConfig>();
     return BlocBuilder<HomeCubit, HomeState>(
       bloc: cubit,
       builder: (context, state) => AppBody(
         isLoading: state.isLoading,
-        title: '${ConfigReader.appName} ${S.of(context).home_title}',
+        title: '${config.appName} ${S.of(context).home_title}',
         body: state is HomeLoadedState
             ? SizedBox(
                 width: double.infinity,

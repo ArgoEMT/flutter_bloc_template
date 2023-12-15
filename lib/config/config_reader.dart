@@ -5,45 +5,26 @@ import 'package:flutter/services.dart';
 
 enum Environment { dev, pprd, production }
 
-class Config {
-  Config({
-    required this.appName,
+class AppConfig {
+  AppConfig({
     required this.env,
+    required this.appName,
+    required this.apiBaseUrl,
     //TODO: Add other config variables here
   });
 
-  Config.fromJson(this.env, Map<String, dynamic> json)
-      : appName = json['appName'] as String;
+  AppConfig.fromJson(this.env, Map<String, dynamic> json)
+      : appName = json['appName'] as String,
+        apiBaseUrl = json['apiBaseUrl'] as String;
 
+  final String apiBaseUrl;
   final String appName;
   final Environment env;
+
   //TODO: Add other config variables here
-}
 
-class ConfigReader {
-  static Config? config;
-
-  static Future initialize(Environment env) async {
-    final configString =
-        await rootBundle.loadString('configs/app_config_${env.name}.json');
-
-    final configJson = json.decode(configString) as Map<String, dynamic>;
-
-    config = Config.fromJson(env, configJson);
-  }
-
-  static String get appName {
-    return config?.appName ?? '';
-  }
-
-  static Environment get env {
-    return config?.env ?? Environment.dev;
-  }
-
-  //TODO: Add other config getters here
-
-  static Color get color {
-    switch (config?.env) {
+  Color get color {
+    switch (env) {
       case Environment.dev:
         return Colors.green;
       case Environment.pprd:
@@ -53,5 +34,16 @@ class ConfigReader {
       default:
         return Colors.black;
     }
+  }
+}
+
+class ConfigInitializer {
+  static Future<AppConfig> initialize(Environment env) async {
+    final configString =
+        await rootBundle.loadString('configs/app_config_${env.name}.json');
+
+    final configJson = json.decode(configString) as Map<String, dynamic>;
+
+    return AppConfig.fromJson(env, configJson);
   }
 }

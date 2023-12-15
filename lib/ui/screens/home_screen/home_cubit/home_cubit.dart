@@ -30,6 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
     _pageNumber++;
     final response = await _homeService.getHomeData(_pageNumber);
 
+
     if (response != null) {
       data.add(response);
       emit(HomeLoadedState(data));

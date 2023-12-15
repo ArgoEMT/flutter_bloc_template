@@ -17,12 +17,6 @@ import 'helpers/core_methods_platform_helper.dart';
 
 Future run(Environment env) async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  ConfigReader.initialize(env);
-
-  /// Initialize services
-  ServicesSetup.init();
-
   // Error handling and logging
   FlutterError.onError = (FlutterErrorDetails details) {
     appLogger(
@@ -35,7 +29,18 @@ Future run(Environment env) async {
     return true;
   };
 
-  runApp(MyApp(env: env));
+  ConfigInitializer.initialize(env).then((config) {
+    // Init the app config and register it to GetIt
+    if (GetIt.I.isRegistered<AppConfig>()) {
+      GetIt.I.unregister<AppConfig>();
+    }
+    GetIt.I.registerSingleton<AppConfig>(config);
+
+    /// Initialize services
+    ServicesSetup.init();
+
+    runApp(MyApp(env: env));
+  });
 }
 
 class MyApp extends StatelessWidget {

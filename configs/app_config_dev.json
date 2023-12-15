@@ -1,3 +1,4 @@
 {
-    "appName": "BLoC template DEV"
+    "appName": "BLoC template DEV",
+    "apiBaseUrl": "https://jsonplaceholder.typicode.com"
 }

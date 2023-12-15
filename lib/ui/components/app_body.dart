@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../config/config_reader.dart';
 import '../../config/theme/app_colors.dart';
@@ -39,14 +40,15 @@ class AppBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final config = GetIt.instance<AppConfig>();
     return Stack(
       children: [
         GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Banner(
             location: BannerLocation.topEnd,
-            color: ConfigReader.color,
-            message: ConfigReader.env.name,
+            color: config.color,
+            message: config.env.name,
             child: Scaffold(
               backgroundColor: backgroundColor ?? appWhite,
               bottomNavigationBar: showBottomBar
