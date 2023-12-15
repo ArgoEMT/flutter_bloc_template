@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc_template/config/config_reader.dart';
+import '../../config/config_reader.dart';
 
 Future<void> appLogger({
   required String message,

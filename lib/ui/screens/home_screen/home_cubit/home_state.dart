@@ -11,5 +11,10 @@ final class HomeInitialState extends HomeState {
 
 final class HomeLoadedState extends HomeState {
   HomeLoadedState(this.data, [super.isLoading = false]);
-  final List<String> data;
+  final List<HomeDataModel> data;
+}
+
+final class HomeErrorState extends HomeState {
+  HomeErrorState(this.message, [super.isLoading = false]);
+  final String message;
 }

@@ -4,10 +4,7 @@ class ResponseModel<T> {
     required this.success,
     this.message,
     this.result,
-  }) : assert(
-          success || message != null,
-          'An error message must be provided when success is false',
-        );
+  });
 
   ResponseModel.fromJson(Map<String, dynamic> json)
       : result = json['body'],
@@ -20,7 +17,7 @@ class ResponseModel<T> {
   })  : success = otherResponse.success,
         message = otherResponse.message;
 
-  final String? message;
+  String? message;
   final bool success;
 
   T? result;

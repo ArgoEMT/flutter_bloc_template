@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_template/generated/l10n.dart';
+import '../../generated/l10n.dart';
 
 import '../../config/app_router.dart';
 import '../../config/theme/app_colors.dart';

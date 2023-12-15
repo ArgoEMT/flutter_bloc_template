@@ -1,4 +1,4 @@
-import 'package:flutter_bloc_template/config/config_reader.dart';
+import 'config/config_reader.dart';
 
 import 'app.dart' as app;
 

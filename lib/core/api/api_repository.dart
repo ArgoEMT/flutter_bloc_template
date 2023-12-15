@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter_bloc_template/core/enum/http_method_enum.dart';
-import 'package:flutter_bloc_template/core/models/api/list_pagination_response.dart';
-import 'package:flutter_bloc_template/core/utils/log.dart';
+import '../enum/http_method_enum.dart';
+import '../models/api/list_pagination_response.dart';
+import '../utils/log.dart';
 import 'package:http/http.dart';
 
 import '../models/api/token.dart';
