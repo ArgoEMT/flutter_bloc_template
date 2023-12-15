@@ -58,14 +58,10 @@ class AppRouter {
 
 class CustomPageRoute<T extends Object?> extends MaterialPageRoute<T> {
   CustomPageRoute({
-    required Widget Function(BuildContext) builder,
-    RouteSettings? settings,
-    required bool maintainState,
-  }) : super(
-          builder: builder,
-          settings: settings,
-          maintainState: maintainState,
-        );
+    required super.builder,
+    super.settings,
+    required super.maintainState,
+  });
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
@@ -80,7 +76,7 @@ class CustomPageRoute<T extends Object?> extends MaterialPageRoute<T> {
 class RoutePaths {
   static const home = '/';
 
-  //TODO: add routes
+  //TODO: App add routes
 }
 
 extension NavigationExtension on BuildContext {

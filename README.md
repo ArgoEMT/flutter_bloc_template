@@ -23,8 +23,9 @@ This project is a template for quickly launching a Flutter application using BLo
 ## Packages used
 - [`get_it`](https://pub.dev/packages/get_it): Enables dependency injection without using context ;
 - [`flutter_bloc`](https://pub.dev/packages/flutter_bloc): BLoC package adapted for Flutter ;
-- [`intl`](https://pub.dev/packages/intl): Manages the application's translations ;
-- [`flutter_localizations`](https://pub.dev/packages/flutter_localizations): Provides the locals for the `intl` package.
+- [`intl`](https://pub.dev/packages/intl): Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text ;
+- [`flutter_localizations`](https://pub.dev/packages/flutter_localizations): Localizations for the Flutter library ;
+- [`http`](https://pub.dev/packages/http): A composable, Future-based library for making HTTP requests.
 
 ## Recommended Packages
 - [`shared_preferences`](https://pub.dev/packages/shared_preferences): Manages phone shared preferences. _Shared preferences do not replace a local database_ ;

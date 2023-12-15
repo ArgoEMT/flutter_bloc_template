@@ -12,14 +12,14 @@ enum ReturnType {
 
 class TemplateAppbar extends StatelessWidget implements PreferredSizeWidget {
   const TemplateAppbar({
-    Key? key,
+    super.key,
     required this.child,
     this.backgroundColor,
     this.textColor,
     this.returnType,
     this.onPop,
     this.actions,
-  }) : super(key: key);
+  });
 
   final void Function()? onPop;
   final List<Widget>? actions;

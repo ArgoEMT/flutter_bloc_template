@@ -5,9 +5,7 @@ import '../../config/app_router.dart';
 import '../../config/theme/app_colors.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
-  const AppBottomNavigationBar({
-    Key? key,
-  }) : super(key: key);
+  const AppBottomNavigationBar({super.key});
 
   Widget _buildItem(
     BuildContext context, {

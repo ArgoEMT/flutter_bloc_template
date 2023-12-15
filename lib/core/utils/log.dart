@@ -11,9 +11,9 @@ Future appLogger({
   final config = GetIt.I<AppConfig>();
   if (config.env != Environment.dev) {
     if (isError) {
-      //TODO: log error to crashlytics (i.e firebase)
+      //TODO: log error to crashlytics (firebase, kibana, etc)
     } else {
-      //TODO: log to crashlytics (i.e firebase)
+      //TODO: log error to crashlytics (firebase, kibana, etc)
     }
   }
   if (kDebugMode) {
