@@ -11,8 +11,8 @@ This project is a template for quickly launching a Flutter application using BLo
 - [Dart Data Class Generator _(optional)_](https://marketplace.visualstudio.com/items?itemName=hzgood.dart-data-class-generator): Simplifies the creation of data models ;
 - [dart-import (_optional_)](https://marketplace.visualstudio.com/items?itemName=luanpotter.dart-import): Automatically cleans up imports, converting them to relative paths ;
 - [flutter-stylizer (_optional_)](https://marketplace.visualstudio.com/items?itemName=gmlewis-vscode.flutter-stylizer): Automatically formats Flutter code. _You can [customize](https://chat.openai.com/#Flutter-Stylizer) the order of objects in the options_ ;
-- [Json to Dart Model](https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart): Generates a document model from JSON. Useful when creating API return classes ;
-- [Pubspec Dependency Search](https://marketplace.visualstudio.com/items?itemName=everettjf.pubspec-dependency-search): Links the `pubspec.yaml` file to the [pub.dev](https://pub.dev/) website ;
+- [Json to Dart Model (_optional_)](https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart): Generates a document model from JSON. Useful when creating API return classes ;
+- [Pubspec Dependency Search (_optional_)](https://marketplace.visualstudio.com/items?itemName=everettjf.pubspec-dependency-search): Links the `pubspec.yaml` file to the [pub.dev](https://pub.dev/) website ;
 - [Flutter Intl](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl): Manages the application's translations.
 
 ### Make sure to read theses resources
