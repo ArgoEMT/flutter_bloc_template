@@ -132,7 +132,7 @@ const bold16Black70 = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-/// Color: [applack] - FontSize: 16 - FontWeight: 600
+/// Color: [appBlack] - FontSize: 16 - FontWeight: 600
 const bold16Black = TextStyle(
   fontSize: 16,
   color: appBlack,

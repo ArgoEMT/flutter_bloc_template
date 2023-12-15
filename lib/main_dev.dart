@@ -2,6 +2,4 @@ import 'config/config_reader.dart';
 
 import 'app.dart' as app;
 
-void main() {
-  app.run(Environment.dev);
-}
+void main() => app.run(Environment.dev);

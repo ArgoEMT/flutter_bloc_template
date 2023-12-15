@@ -26,13 +26,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ...state.data
-                        .map(
-                          (e) => Text(
-                            e.title,
-                          ),
-                        )
-                        .toList(),
+                    ...state.data.map((e) => Text(e.title)).toList(),
                     const SizedBox(height: 24.0),
                     OutlinedButton(
                       onPressed: cubit.loadMore,
@@ -41,7 +35,11 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               )
-            : const SizedBox(),
+            : SizedBox(
+                child: state is HomeErrorState
+                    ? Center(child: Text(state.message))
+                    : null,
+              ),
       ),
     );
   }

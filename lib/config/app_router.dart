@@ -79,6 +79,7 @@ class CustomPageRoute<T extends Object?> extends MaterialPageRoute<T> {
 
 class RoutePaths {
   static const home = '/';
+
   //TODO: add routes
 }
 

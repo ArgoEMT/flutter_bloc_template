@@ -1,16 +1,15 @@
 import 'dart:convert';
 
 class HomeDataModel {
-  final int userId;
-  final int id;
-  final String title;
-  final bool completed;
   HomeDataModel({
     required this.userId,
     required this.id,
     required this.title,
     required this.completed,
   });
+
+  factory HomeDataModel.fromJson(String source) =>
+      HomeDataModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   factory HomeDataModel.fromMap(Map<String, dynamic> map) {
     return HomeDataModel(
@@ -21,6 +20,8 @@ class HomeDataModel {
     );
   }
 
-  factory HomeDataModel.fromJson(String source) =>
-      HomeDataModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  final bool completed;
+  final int id;
+  final String title;
+  final int userId;
 }

@@ -1,7 +1,6 @@
-import '../models/home_model.dart';
-
 import '../../ui/ui_helpers/ui_snackbar_helper.dart';
 import '../api/home_api.dart';
+import '../models/home_model.dart';
 
 class HomeService {
   final _homeApi = HomeApi();

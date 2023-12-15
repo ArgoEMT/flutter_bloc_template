@@ -6,6 +6,11 @@ class ResponseModel<T> {
     this.result,
   });
 
+  ResponseModel.copy(ResponseModel other)
+      : success = other.success,
+        message = other.message,
+        result = other.result;
+
   ResponseModel.fromJson(Map<String, dynamic> json)
       : result = json['body'],
         success = json['successful'],
@@ -17,15 +22,10 @@ class ResponseModel<T> {
   })  : success = otherResponse.success,
         message = otherResponse.message;
 
-  String? message;
   final bool success;
 
+  String? message;
   T? result;
-
-  ResponseModel.copy(ResponseModel other)
-      : success = other.success,
-        message = other.message,
-        result = other.result;
 
   @override
   String toString() => 'ResponseModel(message: $message, success: $success)';

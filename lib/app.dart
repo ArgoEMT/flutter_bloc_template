@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 
@@ -13,6 +12,7 @@ import 'config/services_setup.dart';
 import 'config/theme/app_theme.dart';
 import 'core/services/navigation_service.dart';
 import 'core/utils/log.dart';
+import 'generated/l10n.dart';
 import 'helpers/core_methods_platform_helper.dart';
 
 Future run(Environment env) async {

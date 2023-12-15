@@ -18,13 +18,6 @@ class JWTToken {
   final String refreshToken;
   final int refreshTokenExpiration;
 
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'accessToken': accessToken,
-        'accessTokenExpiration': accessTokenExpiration,
-        'refreshToken': refreshToken,
-        'refreshTokenExpiration': refreshTokenExpiration,
-      };
-
   @override
   String toString() => '{\n'
       '\taccessToken: $accessToken,\n'
@@ -32,4 +25,11 @@ class JWTToken {
       '\trefreshToken: $refreshToken,\n'
       '\trefreshTokenExpiration: $refreshTokenExpiration,\n'
       '}';
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'accessToken': accessToken,
+        'accessTokenExpiration': accessTokenExpiration,
+        'refreshToken': refreshToken,
+        'refreshTokenExpiration': refreshTokenExpiration,
+      };
 }

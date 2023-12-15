@@ -3,38 +3,38 @@ import 'package:flutter/material.dart';
 /// 0xFF1A936F => Primary
 const Color appPrimary = Color.fromARGB(255, 149, 96, 167);
 
-/// 0xFF262626 => Noir - Texte
+/// 0xFF262626 => Black - Texte
 const Color appBlack = Color(0xFF262626);
 
-/// 0x80262626 => Noir avec 50% d'opacité
+/// 0x80262626 => Black with 50% opacity
 const Color appBlack50 = Color(0x80262626);
 
-/// 0xB3262626 => Noir avec 70% d'opacité
+/// 0xB3262626 => Black with 70% opacity
 const Color appBlack70 = Color(0xB3262626);
 
-/// 0xFFFFFFFF => Blanc - Fond
+/// 0xFFFFFFFF => White - Background
 const Color appWhite = Color(0xFFFFFFFF);
 
-/// 0xFFF8F8F8 => Blanc - Fond SearchBar
+/// 0xFFF8F8F8 => White - SearchBar background
 const Color appWhiteF8 = Color(0xFFF8F8F8);
 
-/// 0xFFD4770A => Orange - En attente/Warning
+/// 0xFFD4770A => Orange - Warning
 const Color appOrange = Color(0xFFD4770A);
 
-/// 0xFF9E0F0F => Rouge - Erreur/Danger
+/// 0xFF9E0F0F => Red - Danger
 const Color appRed = Color(0xFF9E0F0F);
 
-/// 0xFFE5EBF0 => Gris clair - Bordure bouton secondaire
+/// 0xFFE5EBF0 => Light grey - Secondary button border
 const Color appLightGrey = Color(0xFFE5EBF0);
 
-/// 0xFFC4CCD2 => Gris - Bordure champs/Divider
+/// 0xFFC4CCD2 => Grey - Dividers
 const Color appGrey = Color(0xFFC4CCD2);
 
-/// 0xFFF0F8EF => Vert clair - Background Homescreen
+/// 0xFFF0F8EF => Light primary - Background Homescreen
 const Color homeBackgroundColor = Color.fromARGB(20, 149, 96, 167);
 
 extension ColorExtension on Color {
-  //? Ce code à été proposé par @mr_mmmmore sur StackOverflow
+  //? Code frome @mr_mmmmore on StackOverflow
   //? https://stackoverflow.com/a/60191441
 
   /// Darken a color by [percent] amount (1 = black)

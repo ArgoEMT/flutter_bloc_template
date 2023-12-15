@@ -18,9 +18,10 @@ class ListPaginationResponse<T> {
         perPage: json['perPage'] as int,
       );
 
-  List<T> items;
-  final int total;
-  int page;
   final int pages;
   final int perPage;
+  final int total;
+
+  List<T> items;
+  int page;
 }

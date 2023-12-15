@@ -26,17 +26,16 @@ class AppBody extends StatelessWidget {
 
   final PreferredSizeWidget? appBar;
   final Color? backgroundColor;
-  final Widget? bottomBar;
   final Widget body;
-  final String? title;
-  final IconData? titleIcon;
-  final ScrollPhysics? scrollPhysics;
-  final bool showBottomBar;
-
+  final Widget? bottomBar;
   final bool contentPadding;
-  final ScrollController? scrollController;
   final bool hasSingleChildScrollView;
   final bool isLoading;
+  final ScrollController? scrollController;
+  final ScrollPhysics? scrollPhysics;
+  final bool showBottomBar;
+  final String? title;
+  final IconData? titleIcon;
 
   @override
   Widget build(BuildContext context) {

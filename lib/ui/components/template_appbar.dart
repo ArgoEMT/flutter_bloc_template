@@ -22,12 +22,11 @@ class TemplateAppbar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   final void Function()? onPop;
-
-  final Color? backgroundColor;
-  final Color? textColor;
-  final ReturnType? returnType;
-  final Widget child;
   final List<Widget>? actions;
+  final Color? backgroundColor;
+  final Widget child;
+  final ReturnType? returnType;
+  final Color? textColor;
 
   @override
   Size get preferredSize => const Size.fromHeight(100);

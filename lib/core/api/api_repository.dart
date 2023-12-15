@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter_bloc_template/core/models/api/response_model.dart';
+import '../models/api/response_model.dart';
 
 import '../enum/http_method_enum.dart';
 import '../models/api/list_pagination_response.dart';
@@ -12,6 +12,31 @@ import '../models/api/token.dart';
 
 class ApiRepository {
   final _client = Client();
+
+  Future _logResponse(Response response, {bool mock = false}) async {
+    await appLogger(
+      message: 'Mock: $mock\n'
+          'Request: ${response.request?.method} => ${response.request?.url}\n'
+          'Status: ${response.statusCode}\n'
+          'Request Header: ${response.request?.headers}\n'
+          'Request Query: ${response.request?.url.query}\n'
+          'Request Body: ${response.request.toString()}\n'
+          'Response Header: ${response.headers}\n'
+          'Response Body: ${response.body}\n',
+      source: '|ApiRepository| _logResponse()',
+    );
+  }
+
+  ListPaginationResponse<T> listPaginationResponseFormat<T>(
+      Map<String, dynamic> body, List<T> data) {
+    return ListPaginationResponse<T>(
+      items: data,
+      total: body['totalElements'] as int,
+      page: body['page'] as int,
+      pages: body['pages'] as int,
+      perPage: body['perPage'] as int,
+    );
+  }
 
   Future<ResponseModel<T>> performRequest<T>({
     required String url,
@@ -83,30 +108,5 @@ class ApiRepository {
     } catch (e) {
       return ResponseModel(success: false, message: e.toString());
     }
-  }
-
-  ListPaginationResponse<T> listPaginationResponseFormat<T>(
-      Map<String, dynamic> body, List<T> data) {
-    return ListPaginationResponse<T>(
-      items: data,
-      total: body['totalElements'] as int,
-      page: body['page'] as int,
-      pages: body['pages'] as int,
-      perPage: body['perPage'] as int,
-    );
-  }
-
-  Future _logResponse(Response response, {bool mock = false}) async {
-    await appLogger(
-      message: 'Mock: $mock\n'
-          'Request: ${response.request?.method} => ${response.request?.url}\n'
-          'Status: ${response.statusCode}\n'
-          'Request Header: ${response.request?.headers}\n'
-          'Request Query: ${response.request?.url.query}\n'
-          'Request Body: ${response.request.toString()}\n'
-          'Response Header: ${response.headers}\n'
-          'Response Body: ${response.body}\n',
-      source: '|ApiRepository| _logResponse()',
-    );
   }
 }
