@@ -3,7 +3,7 @@ This project is a template for quickly launching a Flutter application using BLo
 
 ## Prerequisites
 ### Environment
-- [FVM (Flutter Version Management)](https://fvm.app/): Manages the Flutter SDK version through the `fvm_config.json` file.
+- [FVM (Flutter Version Management)](https://fvm.app/): Manages the Flutter SDK version through the `./fvm/fvm_config.json` file.
 
 ### VSCode Extensions
 - [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter): Official extension managed by the Flutter team ;
