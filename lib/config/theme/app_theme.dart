@@ -7,7 +7,6 @@ class AppTheme {
   static final ThemeData defaultTheme = ThemeData(
     //TODO: Change theme
     colorScheme: const ColorScheme(
-      background: appWhite,
       brightness: Brightness.light,
       primary: appPrimary,
       onPrimary: appWhite,
@@ -15,7 +14,6 @@ class AppTheme {
       onSecondary: appWhite,
       error: appRed,
       onError: appWhite,
-      onBackground: appBlack,
       surface: appWhiteF8,
       onSurface: appBlack,
     ),

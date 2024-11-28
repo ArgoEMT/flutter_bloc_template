@@ -1,0 +1,27 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+android/
+ios/
+.vscode/
+build/
+.idea/
+.cursorignore
+.fvm/
+.github/
+configs/
+.flutter-plugins
+.flutter-plugins-dependencies
+.fvmrc
+.gitignore
+.metadata
+analysis_options.yaml
+changelog-ci-config.json
+CHANGELOG.md
+firebase_generate.sh
+firebase.json
+flutter_launcher_icons-dev.yaml
+flutter_launcher_icons-preprod.yaml
+flutter_launcher_icons-prod.yaml
+flutter_native_splash.yaml
+Makefile
+pubspec.lock
+pubspec.yaml
